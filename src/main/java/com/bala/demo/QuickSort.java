@@ -8,8 +8,8 @@ public class QuickSort {
     public void sort(int[] A, int p, int r) {
         if (p < r) {
             int q = partition(A, p, r);
-            sort(A, p, q);
-//            sort(A, q + 1, r);
+            sort(A, p, q-1);
+            sort(A, q + 1, r);
         }
     }
 
