@@ -6,8 +6,16 @@ public class Main {
     public static void main(String[] args) {
 
 //        testMergeSort();
-        testOMergeSort();
-        testOMergeSortInt();
+//        testOMergeSort();
+//        testOMergeSortInt();
+        testQuickSort();
+    }
+
+    private static void testQuickSort() {
+        QuickSort msort = new QuickSort();
+        int[] data = new int[]{8, 7, 6, 5, 4, 3, 2, 1};
+        msort.sort(data, 0, data.length - 1);
+        msort.print(data);
     }
 
     public static void testMergeSort() {
