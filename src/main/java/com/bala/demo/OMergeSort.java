@@ -8,8 +8,8 @@ public class OMergeSort<T extends Comparable<T>> {
     public void sort(T[] A, int p, int r) {
         if (p < r) {
             int q = (p + r) / 2;
-//            sort(A, p, q);
-//            sort(A, q + 1, r);
+            sort(A, p, q);
+            sort(A, q + 1, r);
             merge(A, p, q, r);
         }
     }
@@ -26,7 +26,8 @@ public class OMergeSort<T extends Comparable<T>> {
         for (int i = 0; i < n1; i++) {
             L[i] = A[p + i];
         }
-
+        L[n1] = null;
+        R[n2] = null;
         for (int j = 0; j < n2; j++) {
             R[j] = A[q + j + 1];
         }
@@ -36,10 +37,7 @@ public class OMergeSort<T extends Comparable<T>> {
 
             T Li = (T) L[i];
             T Rj = (T) R[j];
-            if (Li != null && Rj != null) {
-                break;
-            }
-            if (Li.compareTo(Rj) < 0) {
+            if (Rj == null || (Li != null && Li.compareTo(Rj) < 0)) {
                 A[k] = Li;
                 i++;
             } else {
